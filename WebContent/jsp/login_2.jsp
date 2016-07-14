@@ -1,6 +1,11 @@
-<%@ include file="/common/taglibs.jsp"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
+<!doctype html>
+<html lang="us">
 <head>
-	
+	<meta charset="utf-8">
+	<title>jQuery UI </title>
+	<script src="../js/jquery.js"></script>
 	<script src="../js/jquery-ui.js"></script>
 	<link href="../css/jquery-ui.css" rel="stylesheet">
 	<link rel="stylesheet" href="../css/validationEngine.jquery.css" type="text/css"/>
@@ -18,33 +23,29 @@
 
 </style>
 
-</head>
 
+
+
+</head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 <div class="lg-center" >
  
 
 <!-- Accordion -->
 <div id="accordion" style="width:361px">
-	
 	<h3>Login</h3>
 	<div>
-			<form action="../user/login.ext" id="lgFm" onsubmit="return jQuery(this).validationEngine('validate');">
-			<s:if test="hasActionErrors()">
-   				<div class="errors">
-    				<s:actionerror/>
-   				</div>
-			</s:if>
-			
+			<form action="" id="lgFm" onsubmit="return jQuery(this).validationEngine('validate');">
 			<table border="0" >
 				<tr>
-					<td><label>UserId : </label></td>
-					<td> <input type="text" class="validate[required] text-input" name="userInfo.userId" /></td>
+					<td><label>UserName : </label></td>
+					<td> <input type="text" class="validate[required] text-input" name="username" /></td>
 				</tr>
 				<tr>
 					<td><label>Password :</label> </td>
 					<td>
-						<input type="password" class="validate[required] text-input" name="userInfo.password" />
+						<input type="password" class="validate[required] text-input" name="password" />
 					</td>
 				</tr>
 				<tr >
@@ -54,6 +55,11 @@
 					</td>
 				</tr>
 			</table>
+			
+			
+			
+			
+				
 			</form>
 	</div>
 	
@@ -63,7 +69,8 @@
 
 <script>
 
-
+$( "#accordion" ).accordion();
+$( "#button" ).button();
 function validate() {
 	alert('Succesdsdsdsdsss!');
 }
@@ -81,9 +88,7 @@ jQuery(document).ready(function(){
 		onFormFailure:formFailure
 		
 	});
-	$( "#accordion" ).accordion();
-	$( "#button" ).button();
 });
 </script>
-
 </body>
+</html>
